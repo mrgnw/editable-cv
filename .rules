@@ -1,0 +1,37 @@
+## Project Context: editable CV
+
+this is a fork of https://github.com/michael/editable-website , adapted to be a CV/résumé template
+
+### template and styling
+Obtained the template from reddit.com/r/EngineeringResumes template.
+
+(I downloaded their [Google Doc template](https://docs.google.com/document/d/1MBvhATv8y-ESORopRoLSZ3f3HjkM_Qa_f8fIHAEqgnI/edit?tab=t.0) as html)
+
+We can update the typography and make basic changes, but overall it should not stray from the template.
+This is a multilingual translation app built with SvelteKit on Cloudflare Pages.
+
+# Code
+
+## Code Style
+- Don't include obvious comments
+- Use tabs, not spaces
+
+## Svelte 5 + SvelteKit Remote Functions Guidelines
+
+
+
+### CV 
+
+# Svelte 5
+
+Do not ever use $effect unless I explicitly tell you to.
+
+## Component Patterns
+
+## Svelte 5 Runes Quick Reference
+
+- `$state(value)` - Reactive state
+- `$derived(expr)` - Computed values
+- `$effect(() => {})` - Side effects (avoid for state sync)
+- `$props()` - Component inputs
+- `$bindable()` - Two-way bindable props
