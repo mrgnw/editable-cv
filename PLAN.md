@@ -144,11 +144,28 @@ Build the main page matching Engineering Resume template:
 
 ### Phase 6: Styling
 
+Reference: `engresume-template.html` (exported from Google Docs r/EngineeringResumes template)
+
+**Key styles to replicate (ignore the messy spans, just match the visual output):**
+
+- **Page**: max-width 540pt, padding 28.8pt 36pt
+- **Font**: Calibri for body, 11pt base size
+- **Name**: 24pt, centered
+- **Contact line**: centered, links separated by `|`
+- **Section headers**: 12.5pt, with bottom border (0.8pt solid black)
+- **Job/Project titles**: bold for position, normal for company/location
+- **Dates**: right-aligned on same line as title
+- **Bullet points**: 18pt left margin, standard disc markers
+- **Line height**: 1.07
+- **Skills format**: `**Category:** item, item, item`
+
+**Tasks:**
+
+- [ ] Create CV-specific Tailwind classes or CSS matching template
 - [ ] Print-friendly CSS (`@media print`)
 - [ ] A4/Letter page sizing
-- [ ] Professional typography (match template)
-- [ ] Minimal, clean design
 - [ ] PDF export button
+- [ ] Test print output matches template proportions
 
 ---
 
@@ -192,3 +209,4 @@ Build the main page matching Engineering Resume template:
 - [JSON Resume Schema](https://jsonresume.org/schema)
 - [r/EngineeringResumes Wiki](https://old.reddit.com/r/EngineeringResumes/wiki/)
 - [Engineering Resume Template](https://docs.google.com/document/d/1MBvhATv8y-ESORopRoLSZ3f3HjkM_Qa_f8fIHAEqgnI/edit)
+- `engresume-template.html` - Local copy of template exported as HTML (for style reference only)
