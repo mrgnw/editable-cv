@@ -74,7 +74,7 @@ We'll implement the relevant portions of the JSON Resume spec:
 
 ## Phases
 
-### Phase 1: Foundation & Cleanup
+### Phase 1: Foundation & Cleanup ✅
 
 - [x] Set up fork with proper git remotes
 - [x] Save JSON Resume schema to `schema/resume.schema.json`
@@ -96,6 +96,29 @@ We'll implement the relevant portions of the JSON Resume spec:
 - [ ] Update database schema (`sql/schema.sql`)
 - [ ] Create seed data with example CV
 - [ ] Update API endpoints for CV data
+- [ ] Add `JSON_RESUME_URL` env var support for importing resume from URL
+
+#### JSON_RESUME_URL Import Feature
+
+Add an optional `JSON_RESUME_URL` environment variable that allows bootstrapping a resume from an external JSON Resume file.
+
+**Behavior:**
+
+- If `JSON_RESUME_URL` is set and database has no CV data → fetch and use the JSON from URL
+- If `JSON_RESUME_URL` is set and database has CV data → database takes precedence (user edits win)
+- If `JSON_RESUME_URL` is not set → use default placeholder CV or database data
+
+**Implementation:**
+
+```
+# .env
+JSON_RESUME_URL=https://example.com/resume.json
+```
+
+- Fetch happens server-side in `+page.server.js`
+- Validate fetched JSON against schema before using
+- Consider caching the fetched JSON to avoid repeated requests
+- Add a "Reset from URL" button in admin UI to re-import (with confirmation)
 
 ### Phase 4: Resume Layout
 
@@ -154,10 +177,12 @@ Build the main page matching Engineering Resume template:
 
 - [ ] Multiple resume versions/variants
 - [ ] Export to JSON Resume format
-- [ ] Import from JSON Resume
+- [ ] Import from JSON Resume (file upload)
 - [ ] Export to PDF (server-side)
 - [ ] Theme variants
 - [ ] Cloudflare Pages deployment option
+- [ ] Sync/refresh from `JSON_RESUME_URL` on demand
+- [ ] Diff view when URL source differs from database version
 
 ---
 
